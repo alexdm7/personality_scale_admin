@@ -17,21 +17,18 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         return windows;
       case TargetPlatform.linux:
@@ -46,21 +43,30 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDcUDDWY4pfoGmNt5dc2csz6ZVb-0ANSdU',
-    appId: '1:796368805205:web:b21a270ffe41b65b5f63dc',
-    messagingSenderId: '796368805205',
-    projectId: 'personality-scale-c53bc',
-    authDomain: 'personality-scale-c53bc.firebaseapp.com',
-    storageBucket: 'personality-scale-c53bc.firebasestorage.app',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyA1qv_guwO5Njns5kW1u9j_7MxhpYiv2dg',
     appId: '1:796368805205:android:aaf2d757b44d509a5f63dc',
     messagingSenderId: '796368805205',
     projectId: 'personality-scale-c53bc',
     storageBucket: 'personality-scale-c53bc.firebasestorage.app',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyCT-myjhobnMceqwvQinRSNWqpvHwP-Lic',
+    appId: '1:796368805205:ios:0652eb998b8938625f63dc',
+    messagingSenderId: '796368805205',
+    projectId: 'personality-scale-c53bc',
+    storageBucket: 'personality-scale-c53bc.firebasestorage.app',
+    iosBundleId: 'com.asharqiyahuniversity.personalityScaleAdmin',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyCT-myjhobnMceqwvQinRSNWqpvHwP-Lic',
+    appId: '1:796368805205:ios:0652eb998b8938625f63dc',
+    messagingSenderId: '796368805205',
+    projectId: 'personality-scale-c53bc',
+    storageBucket: 'personality-scale-c53bc.firebasestorage.app',
+    iosBundleId: 'com.asharqiyahuniversity.personalityScaleAdmin',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
