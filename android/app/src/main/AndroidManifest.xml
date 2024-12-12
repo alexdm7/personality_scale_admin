@@ -2,7 +2,7 @@
     <application
         android:label="personality_scale_admin"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/imag1">
         <activity
             android:name=".MainActivity"
             android:exported="true"
